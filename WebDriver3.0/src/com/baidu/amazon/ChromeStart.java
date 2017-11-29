@@ -58,18 +58,22 @@ public class ChromeStart {
 		WebElement eleSelect = driver.findElement(By.cssSelector("#searchDropdownBox"));
 		Select select = new Select(eleSelect);
 		select.selectByIndex(32);
+//		WebElement eleSubmit = driver.findElement(By.xpath("//input[@class='nav-input']"));
+//		eleSubmit.click();
 	}
 
 	// 选择喜欢的一双鞋，查看其详细信息
 	public void look() {
-		WebElement eleShooe = driver.findElement(By.xpath("//span[@class='a-color-secondary']"));
-		eleShooe.click();
+		// WebElement eleShooe =
+		// driver.findElement(By.xpath("//span[@class='a-color-secondary']"));
+//		WebElement eleShooe = driver.findElement(By.xpath("//a[@title='adidas Originals 阿迪达斯三叶草 中性 板鞋SUPERSTAR']"));
 		WebDriverWait wait = new WebDriverWait(driver, 10);
-		wait.until(new ExpectedCondition<WebElement>() {
+		WebElement eleShooe = wait.until(new ExpectedCondition<WebElement>() {
 			public WebElement apply(WebDriver driver) {
-				return driver.findElement(By.xpath("//select[@class='a-native-dropdown']"));
+				return driver.findElement(By.xpath("//a[@title='adidas Originals 阿迪达斯三叶草 中性 板鞋SUPERSTAR']"));
 			}
-		}).isDisplayed();
+		});
+		eleShooe.click();
 	}
 
 	// 跳转到新的窗口
@@ -85,11 +89,10 @@ public class ChromeStart {
 	}
 
 	// 进入详细详情界面选择尺寸
-	public static void chooseSize() {
-
+	public void chooseSize() {
 		WebElement eleSize = driver.findElement(By.xpath("//select[@class='a-native-dropdown']"));
 		Select selectSize = new Select(eleSize);
-		selectSize.selectByIndex(10);
+		selectSize.selectByIndex(15);
 	}
 
 	// 加入购物车

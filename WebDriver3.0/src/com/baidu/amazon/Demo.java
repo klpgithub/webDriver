@@ -15,8 +15,8 @@ public class Demo {
 		cs.gotoNewWindow();
 		cs.chooseSize();
 		cs.ShoopingCar();
-		cs.gotoNextWindow();
 		cs.settle();
+		cs.gotoNextWindow();
 
 	}
 
